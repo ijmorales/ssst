@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres:alpine
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+  redis:
+    image: redis
+
+  # web:
+  #   build:
+  #     context: ./web
+  #   image: web:tag
+  #   depends_on:
+  #     - server
+  
+  server:
+    build:
+      context: ./server/
+    image: server:tag
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - /mnt/c/Users/moral/Code/sst/server/dist:/usr/src/app/server/dist
+  
