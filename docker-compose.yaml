@@ -23,5 +23,5 @@ services:
       - db
       - redis
     volumes:
-      - /mnt/c/Users/moral/Code/sst/server/dist:/usr/src/app/server/dist
+      - $HOME/Projects/ssst/server/dist:/usr/src/app/dist
   
