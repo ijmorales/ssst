@@ -1,17 +1,23 @@
 services:
   db:
     image: postgres:alpine
+    restart: always
     environment:
+      POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "ssst"
+    ports:
+      - 5432:5432
   redis:
     image: redis
 
-  # web:
-  #   build:
-  #     context: ./web
-  #   image: web:tag
-  #   depends_on:
-  #     - server
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8000:8080
+    depends_on:
+      - db
   
   server:
     build:
