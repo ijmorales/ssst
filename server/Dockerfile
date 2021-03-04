@@ -19,4 +19,6 @@ ENV NODE_ENV dev
 
 EXPOSE 8080
 
+# Run migrations
+
 CMD ["npm", "run", "dev"]
