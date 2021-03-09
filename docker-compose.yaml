@@ -25,9 +25,10 @@ services:
     image: server:tag
     ports:
       - 8080:8080
+      - 9229:9229
     depends_on:
       - db
       - redis
     volumes:
-      - $HOME/Projects/ssst/server/dist:/usr/src/app/dist
+      - $HOME/Projects/ssst/server/:/usr/src/app/
   
